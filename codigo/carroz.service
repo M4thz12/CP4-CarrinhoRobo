@@ -1,0 +1,19 @@
+[Unit]
+Description=Carro Z
+Documentation=man:sshd(8) man:sshd_config(5)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+#EnvironmentFile=-/etc/default/ssh
+EnvironmentFile=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /home/pi/web.py
+RestartSec=3
+Restart=always
+Type=simple
+#user=pi
+WorkingDirectory=/home/pi
+
+[Install]
+WantedBy=multi-user.target
+Alias=carroz.service
