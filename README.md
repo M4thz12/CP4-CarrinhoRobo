@@ -1,18 +1,18 @@
 # 🚗 Carrinho-Robô — Smart Video Car Kit V2.0
 
-Projeto desenvolvido para a disciplina **Project-based Maker Lab**, com o objetivo de integrar conhecimentos de mecânica, eletrônica, programação e comunicação sem fio por meio do desenvolvimento de um carrinho-robô funcional.
+Projeto desenvolvido para a disciplina **Project-based Maker Lab**, com o objetivo de integrar conhecimentos de mecânica, eletrônica, programação, comunicação sem fio e Machine Learning por meio do desenvolvimento e evolução de um carrinho-robô funcional.
 
 ---
 
-## 👥 Equipe
+# 👥 Equipe
 
-| Integrante        | RM      |
-| ----------------- | ------- |
-| David Denunci     | RM98603 |
+| Integrante | RM |
+|---|---|
+| David Denunci | RM98603 |
 | Fernando Popolili | RM99919 |
-| Lucas de Toledo   | RM97913 |
-| Matheus Zanardi   | RM98832 |
-| Augusto Milreu    | RM98245 |
+| Lucas de Toledo | RM97913 |
+| Matheus Zanardi | RM98832 |
+| Augusto Milreu | RM98245 |
 
 ---
 
@@ -20,32 +20,39 @@ Projeto desenvolvido para a disciplina **Project-based Maker Lab**, com o objeti
 
 O projeto consiste na montagem, adaptação e programação de um **carrinho-robô baseado no Smart Video Car Kit V2.0**, utilizando uma **Raspberry Pi** como unidade principal de processamento e controle.
 
-O carrinho integra componentes mecânicos e eletrônicos responsáveis pela movimentação, direção e alimentação do sistema.
+No CP1, o projeto foi desenvolvido com foco na montagem do carrinho, controle dos motores, sistema de direção, comunicação Wi-Fi e desenvolvimento de uma interface web para controle remoto.
 
-A Raspberry Pi executa o software responsável pelo controle do veículo e disponibiliza uma **interface web**, permitindo que o usuário controle o carrinho remotamente por meio de um celular ou computador conectado à rede Wi-Fi criada pelo próprio robô.
+No CP2, o projeto foi evoluído com a integração de um **sensor ultrassônico HC-SR04** e uma aplicação de **Machine Learning**, permitindo que o carrinho analise a distância até obstáculos e utilize o resultado da inferência para interferir em seu comportamento.
 
-Durante o desenvolvimento, a equipe realizou a montagem da estrutura, organização e conexão dos componentes eletrônicos, configuração da Raspberry Pi, testes individuais dos componentes e desenvolvimento do sistema de controle remoto.
+A evolução mantém a arquitetura principal do CP1 e acrescenta uma camada inteligente de segurança ao controle do carrinho.
 
 ---
 
 # 2. Objetivos
 
-O principal objetivo do projeto é desenvolver um **carrinho-robô funcional**, integrando hardware, software, estrutura mecânica e comunicação sem fio.
+## Objetivo geral
 
-### Objetivos específicos
+Desenvolver e evoluir um carrinho-robô funcional utilizando Raspberry Pi, integrando hardware, software, comunicação sem fio, sensores e Machine Learning.
 
-* Utilizar a Raspberry Pi como unidade principal de controle;
-* Controlar os motores responsáveis pela movimentação;
-* Permitir movimentação para frente e para trás;
-* Permitir curvas para esquerda e direita;
-* Permitir o alinhamento da direção na posição reta;
-* Integrar o sistema de controle dos motores à Raspberry Pi;
-* Criar uma rede Wi-Fi própria para comunicação com o robô;
-* Desenvolver uma interface web para controle remoto;
-* Organizar os componentes eletrônicos e o sistema de alimentação;
-* Adaptar e organizar a estrutura física do carrinho;
-* Realizar testes individuais antes da integração final;
-* Documentar o processo de desenvolvimento, montagem e testes.
+## Objetivos específicos
+
+- Utilizar a Raspberry Pi como unidade principal de controle;
+- Controlar os motores responsáveis pela movimentação;
+- Permitir movimentação para frente e para trás;
+- Permitir curvas para esquerda e direita;
+- Permitir o alinhamento da direção na posição reta;
+- Integrar o sistema de controle dos motores à Raspberry Pi;
+- Criar uma rede Wi-Fi própria para comunicação com o robô;
+- Desenvolver uma interface web para controle remoto;
+- Integrar o sensor ultrassônico HC-SR04;
+- Realizar leituras de distância;
+- Criar um conjunto de dados para treinamento;
+- Treinar um modelo de Machine Learning;
+- Realizar inferências utilizando os dados do sensor;
+- Integrar o resultado da inferência ao comportamento do carrinho;
+- Implementar uma camada de segurança contra colisões;
+- Manter a possibilidade de movimentação em ré para permitir a retirada do carrinho de situações de obstáculo;
+- Documentar a evolução do projeto entre CP1 e CP2.
 
 ---
 
@@ -53,30 +60,36 @@ O principal objetivo do projeto é desenvolver um **carrinho-robô funcional**, 
 
 O carrinho desenvolvido possui as seguintes funcionalidades:
 
-* 🚗 Movimentação para frente;
-* 🔙 Movimentação para trás;
-* ⬅️ Direcionamento para esquerda;
-* ➡️ Direcionamento para direita;
-* ⬆️ Retorno da direção para posição reta;
-* 🛑 Parada dos motores;
-* 📶 Controle remoto através de Wi-Fi;
-* 🌐 Interface web para envio dos comandos;
-* 🔋 Sistema de alimentação próprio.
+- 🚗 Movimentação para frente;
+- 🔙 Movimentação para trás;
+- ⬅️ Direcionamento para esquerda;
+- ➡️ Direcionamento para direita;
+- ⬆️ Retorno da direção para posição reta;
+- 🛑 Parada dos motores;
+- 📶 Controle remoto através de Wi-Fi;
+- 🌐 Interface web para envio dos comandos;
+- 📏 Medição de distância utilizando HC-SR04;
+- 🤖 Classificação da situação utilizando Machine Learning;
+- 🛡️ Parada automática diante de obstáculos;
+- 🔋 Sistema de alimentação próprio.
+
+A camada de Machine Learning atua como **mecanismo de segurança**, sem substituir o controle manual do usuário.
 
 ---
 
 # 4. Componentes Principais
 
-| Componente              | Função                                                 |
-| ----------------------- | ------------------------------------------------------ |
-| Raspberry Pi            | Processamento e controle principal do robô             |
-| PCA9685                 | Controle PWM utilizado pelo sistema                    |
-| Controlador dos motores | Acionamento dos motores responsáveis pela movimentação |
-| Motores                 | Movimentação do carrinho                               |
-| Sistema de direção      | Controle da orientação das rodas                       |
-| Rodas                   | Movimentação do veículo                                |
-| Roda de apoio           | Apoio e estabilidade                                   |
-| Sistema de alimentação  | Fornecimento de energia aos componentes                |
+| Componente | Função |
+|---|---|
+| Raspberry Pi | Processamento, controle e execução do modelo |
+| HC-SR04 | Medição da distância até obstáculos |
+| PCA9685 | Controle PWM utilizado pelo sistema |
+| Controlador dos motores | Acionamento dos motores |
+| Motores | Movimentação do carrinho |
+| Sistema de direção | Controle da orientação das rodas |
+| Rodas | Movimentação do veículo |
+| Roda de apoio | Apoio e estabilidade |
+| Sistema de alimentação | Fornecimento de energia |
 
 ---
 
@@ -86,19 +99,17 @@ O projeto utiliza como base a estrutura do **Smart Video Car Kit V2.0**, adaptad
 
 A montagem considerou principalmente:
 
-* Distribuição adequada dos componentes;
-* Espaço disponível no chassi;
-* Fixação dos componentes eletrônicos;
-* Organização e passagem dos cabos;
-* Distância entre fios e partes móveis;
-* Acesso à Raspberry Pi;
-* Acesso ao sistema de alimentação;
-* Liberdade de movimentação das rodas;
-* Facilidade de manutenção.
+- Distribuição adequada dos componentes;
+- Espaço disponível no chassi;
+- Fixação dos componentes eletrônicos;
+- Organização e passagem dos cabos;
+- Distância entre fios e partes móveis;
+- Acesso à Raspberry Pi;
+- Acesso ao sistema de alimentação;
+- Liberdade de movimentação das rodas;
+- Facilidade de manutenção.
 
 Os componentes foram posicionados de forma a não interferir na movimentação do carrinho.
-
-Os cabos também foram organizados para evitar contato com as rodas e demais partes móveis.
 
 ---
 
@@ -106,13 +117,14 @@ Os cabos também foram organizados para evitar contato com as rodas e demais par
 
 A distribuição física dos componentes foi realizada buscando manter o sistema organizado, funcional e de fácil manutenção.
 
-| Região                | Componentes                            |
-| --------------------- | -------------------------------------- |
-| Região central        | Raspberry Pi e componentes de controle |
-| Próximo aos motores   | Sistema de acionamento dos motores     |
-| Região de alimentação | Bateria e conexões de energia          |
-| Laterais              | Motores e rodas                        |
-| Estrutura interna     | Cabos e conexões                       |
+| Região | Componentes |
+|---|---|
+| Região central | Raspberry Pi e componentes de controle |
+| Próximo aos motores | Sistema de acionamento dos motores |
+| Região de alimentação | Bateria e conexões de energia |
+| Laterais | Motores e rodas |
+| Parte frontal | Sensor HC-SR04 |
+| Estrutura interna | Cabos e conexões |
 
 A organização busca manter o equilíbrio do carrinho e evitar que fios ou componentes interfiram na movimentação.
 
@@ -126,27 +138,32 @@ Os comandos enviados pelo usuário são recebidos pelo software executado na Ras
 
 O projeto também utiliza o **PCA9685**, inicializado pelo software para realizar o controle PWM necessário ao sistema.
 
-A arquitetura simplificada pode ser representada da seguinte maneira:
+No CP2, foi adicionado o sensor ultrassônico **HC-SR04**, responsável pela medição da distância entre o carrinho e possíveis obstáculos.
+
+## Arquitetura simplificada
 
 ```text
-                +--------------------+
-                |    Raspberry Pi    |
-                +---------+----------+
-                          |
-                          v
-                +--------------------+
-                |      PCA9685       |
-                +---------+----------+
-                          |
-                +---------+---------+
-                |                   |
-                v                   v
-             Motores             Direção
-                |                   |
-                +---------+---------+
-                          |
-                          v
-                Movimento do carrinho
+                 +----------------------+
+                 |     Raspberry Pi     |
+                 +----------+-----------+
+                            |
+                +-----------+-----------+
+                |                       |
+                v                       v
+        +---------------+       +---------------+
+        |    PCA9685    |       |    HC-SR04    |
+        +-------+-------+       +-------+-------+
+                |                       |
+                v                       v
+        Motores / Direção         Distância
+                |                       |
+                +-----------+-----------+
+                            |
+                            v
+                    Machine Learning
+                            |
+                            v
+                     Ação no carrinho
 ```
 
 ---
@@ -155,17 +172,15 @@ A arquitetura simplificada pode ser representada da seguinte maneira:
 
 O sistema de alimentação é responsável por fornecer energia para os componentes utilizados no carrinho.
 
-A alimentação foi organizada considerando as diferentes necessidades dos componentes eletrônicos e dos motores.
-
 Durante a montagem foram considerados os seguintes cuidados:
 
-* Manter os cabos presos ao chassi;
-* Evitar fios próximos às rodas;
-* Evitar contato com partes móveis;
-* Manter os conectores acessíveis;
-* Evitar tensão excessiva nos cabos;
-* Facilitar a manutenção;
-* Manter a alimentação organizada durante a movimentação.
+- Manter os cabos presos ao chassi;
+- Evitar fios próximos às rodas;
+- Evitar contato com partes móveis;
+- Manter os conectores acessíveis;
+- Evitar tensão excessiva nos cabos;
+- Facilitar a manutenção;
+- Manter a alimentação organizada durante a movimentação.
 
 ---
 
@@ -173,21 +188,19 @@ Durante a montagem foram considerados os seguintes cuidados:
 
 O controle remoto do carrinho é realizado através de **Wi-Fi**.
 
-Para isso, a Raspberry Pi é configurada para criar uma rede própria utilizada exclusivamente para comunicação entre o usuário e o carrinho.
+A Raspberry Pi é configurada para criar uma rede própria utilizada para comunicação entre o usuário e o carrinho.
 
-O nome da rede criada é:
+### Rede
 
 ```text
 CarroZ
 ```
 
-A Raspberry Pi utiliza o endereço:
+### Endereço da Raspberry Pi
 
 ```text
 10.0.0.1
 ```
-
-Dessa forma, um celular ou computador pode se conectar diretamente à rede do carrinho sem a necessidade de utilizar a mesma rede Wi-Fi de um roteador externo.
 
 A configuração é realizada pelo script:
 
@@ -195,7 +208,7 @@ A configuração é realizada pelo script:
 init_hotspot.sh
 ```
 
-O script utiliza o `nmcli` para criar o hotspot, definir o endereço IP e configurar a conexão para inicialização automática.
+O script utiliza `nmcli` para criar o hotspot, definir o endereço IP e configurar a conexão para inicialização automática.
 
 ---
 
@@ -205,11 +218,11 @@ O controle do carrinho é realizado através de uma **interface web** executada 
 
 O sistema foi desenvolvido utilizando:
 
-* Python;
-* HTML;
-* CSS;
-* JavaScript;
-* HTTP.
+- Python;
+- HTML;
+- CSS;
+- JavaScript;
+- HTTP.
 
 O servidor web é executado na porta:
 
@@ -217,7 +230,7 @@ O servidor web é executado na porta:
 8080
 ```
 
-Após conectar um celular ou computador à rede Wi-Fi `CarroZ`, a interface pode ser acessada através do navegador.
+Após conectar um celular ou computador à rede Wi-Fi `CarroZ`, a interface pode ser acessada através de:
 
 ```text
 http://10.0.0.1:8080
@@ -225,19 +238,224 @@ http://10.0.0.1:8080
 
 A interface disponibiliza comandos para:
 
-* Frente;
-* Trás;
-* Esquerda;
-* Direita;
-* Reto;
-* Stop;
-* Inicialização do sistema.
-
-Isso permite controlar o carrinho remotamente sem a necessidade de uma conexão física com o dispositivo utilizado como controle.
+- Frente;
+- Trás;
+- Esquerda;
+- Direita;
+- Reto;
+- Stop;
+- Inicialização do sistema.
 
 ---
 
-# 11. Funcionamento do Software
+# 11. Machine Learning e TinyML — CP2
+
+Como evolução do projeto desenvolvido no CP1, foi adicionada uma camada de Machine Learning responsável por analisar as informações provenientes do sensor HC-SR04.
+
+O objetivo é permitir que o carrinho utilize a distância medida para identificar diferentes situações e tomar uma ação relacionada à segurança do movimento.
+
+## 11.1 Sensor utilizado
+
+Foi utilizado o sensor ultrassônico **HC-SR04**.
+
+O sensor realiza medições da distância entre o carrinho e um obstáculo.
+
+No Raspberry Pi foram utilizados:
+
+```text
+TRIG → GPIO 16
+ECHO → GPIO 20
+```
+
+O pino ECHO utiliza adaptação de tensão para proteção da entrada da Raspberry Pi.
+
+---
+
+# 12. Dataset
+
+Para o treinamento do modelo foram utilizadas medições de distância em centímetros.
+
+As informações foram organizadas em classes relacionadas ao comportamento esperado do carrinho.
+
+## Classes
+
+| Classe | Faixa aproximada | Comportamento |
+|---|---:|---|
+| `parar` | 5–19 cm | Interromper o movimento para frente |
+| `reduzir` | 20–40 cm | Reduzir a velocidade |
+| `seguir` | 41–180 cm | Permitir o movimento normal |
+
+O dataset utilizado no projeto está armazenado na pasta de dados do CP2.
+
+Arquivo principal:
+
+```text
+dados_treino_corrigido.csv
+```
+
+---
+
+# 13. Treinamento do Modelo
+
+O modelo foi treinado utilizando Python e posteriormente salvo para utilização no Raspberry Pi.
+
+O arquivo do modelo é:
+
+```text
+modelo_carro.pkl
+```
+
+O modelo recebe como entrada a distância medida pelo sensor e produz uma das três classificações:
+
+```text
+seguir
+reduzir
+parar
+```
+
+O fluxo de Machine Learning utilizado foi:
+
+```text
+Dados de distância
+       ↓
+Dataset
+       ↓
+Treinamento
+       ↓
+Modelo
+       ↓
+Arquivo .pkl
+       ↓
+Raspberry Pi
+```
+
+---
+
+# 14. Inferência no Raspberry Pi
+
+Durante a execução do carrinho, a Raspberry Pi realiza novas leituras do HC-SR04 e utiliza o modelo treinado para realizar a classificação.
+
+O modelo é carregado pelo programa através do arquivo:
+
+```text
+modelo_carro.pkl
+```
+
+A cada nova medição, o sistema avalia a situação atual do carrinho.
+
+Exemplo:
+
+```text
+Distância: 70 cm
+        ↓
+    Modelo ML
+        ↓
+     seguir
+        ↓
+Carrinho pode continuar
+```
+
+Outro exemplo:
+
+```text
+Distância: 15 cm
+        ↓
+    Modelo ML
+        ↓
+      parar
+        ↓
+Carrinho interrompe o movimento
+```
+
+---
+
+# 15. Integração do Machine Learning com o Carrinho
+
+O resultado da inferência possui efeito direto no comportamento do carrinho.
+
+A camada de Machine Learning foi desenvolvida como uma **camada de segurança sobre o controle manual**.
+
+## Comportamento
+
+### `seguir`
+
+Quando não existe uma situação de risco, o usuário pode continuar controlando o carrinho normalmente.
+
+### `reduzir`
+
+Quando o obstáculo se aproxima, o sistema pode utilizar a classificação para indicar uma situação de atenção e redução de velocidade.
+
+### `parar`
+
+Quando o modelo identifica uma situação de risco, o carrinho interrompe automaticamente o movimento para frente.
+
+## Controle manual preservado
+
+O Machine Learning não substitui o controle do usuário.
+
+O usuário continua podendo:
+
+- avançar;
+- virar;
+- parar;
+- retornar;
+- utilizar a ré.
+
+A **ré permanece disponível mesmo quando existe um obstáculo próximo**, permitindo que o operador retire o carrinho da situação de risco.
+
+---
+
+# 16. Arquitetura do CP2
+
+O fluxo completo da evolução pode ser representado da seguinte maneira:
+
+```text
+                    +----------------+
+                    |    HC-SR04     |
+                    +-------+--------+
+                            |
+                            v
+                    +----------------+
+                    |     Dados      |
+                    |   de distância |
+                    +-------+--------+
+                            |
+                            v
+                    +----------------+
+                    |    Dataset     |
+                    +-------+--------+
+                            |
+                            v
+                    +----------------+
+                    |   Treinamento  |
+                    |       ML       |
+                    +-------+--------+
+                            |
+                            v
+                    +----------------+
+                    | modelo_carro   |
+                    |     .pkl       |
+                    +-------+--------+
+                            |
+                            v
+                    +----------------+
+                    |  Raspberry Pi  |
+                    |    Inferência  |
+                    +-------+--------+
+                            |
+                            v
+                 +----------+-----------+
+                 |                      |
+                 v                      v
+              seguir                  parar
+                 |                      |
+                 v                      v
+          Controle normal         Stop automático
+```
+
+---
+
+# 17. Funcionamento do Software
 
 O principal arquivo responsável pelo funcionamento do carrinho é:
 
@@ -245,50 +463,41 @@ O principal arquivo responsável pelo funcionamento do carrinho é:
 web.py
 ```
 
-O programa implementa uma classe responsável pelo controle do veículo.
+Além do controle dos motores e da interface web, o programa passou a integrar o monitoramento do sensor e o modelo de Machine Learning.
 
-Na inicialização, são configurados os componentes utilizados para controlar as rodas e a direção.
+Entre as principais responsabilidades do software estão:
 
-A velocidade padrão utilizada pelo sistema é definida através da constante:
+| Função | Responsabilidade |
+|---|---|
+| `init()` | Inicializa os componentes necessários |
+| `frente()` | Movimenta o carrinho para frente |
+| `tras()` | Movimenta o carrinho para trás |
+| `direita()` | Direciona as rodas para direita |
+| `esquerda()` | Direciona as rodas para esquerda |
+| `reto()` | Retorna a direção para posição reta |
+| `stop()` | Interrompe a movimentação |
+| `status()` | Retorna informações sobre o sistema |
+| Monitor ML | Monitora distância e realiza inferência |
 
-```python
-MOTOR_SPEED = 30
-```
-
-Os principais métodos implementados são:
-
-| Método       | Função                                |
-| ------------ | ------------------------------------- |
-| `init()`     | Inicializa os componentes necessários |
-| `frente()`   | Movimenta o carrinho para frente      |
-| `tras()`     | Movimenta o carrinho para trás        |
-| `direita()`  | Direciona as rodas para direita       |
-| `esquerda()` | Direciona as rodas para esquerda      |
-| `reto()`     | Retorna a direção para posição reta   |
-| `stop()`     | Interrompe a movimentação             |
-| `status()`   | Retorna informações sobre o sistema   |
-
-O servidor HTTP recebe os comandos enviados pelo navegador e executa o método correspondente.
+A aplicação também possui um processo de monitoramento contínuo do sensor para identificar situações de risco.
 
 ---
 
-# 12. Interface Web
-
-A própria aplicação Python disponibiliza a página utilizada para controlar o carrinho.
+# 18. Interface Web
 
 A interface possui botões para os principais comandos de movimentação:
 
 ```text
-                FRENTE
-                   ▲
+                 FRENTE
+                    ▲
 
-       ESQUERDA   STOP   DIREITA
-           ◀        ■        ▶
+          ESQUERDA  STOP  DIREITA
+             ◀        ■       ▶
 
-                   ▼
-                  TRÁS
+                    ▼
+                   TRÁS
 
-                  RETO
+                   RETO
 ```
 
 Quando um botão é pressionado, o JavaScript envia uma requisição HTTP para o servidor.
@@ -299,7 +508,7 @@ O padrão utilizado é:
 /command/<comando>
 ```
 
-Por exemplo:
+Exemplos:
 
 ```text
 /command/frente
@@ -310,62 +519,67 @@ Por exemplo:
 /command/stop
 ```
 
-O servidor identifica o comando solicitado e executa a ação correspondente no carrinho.
-
 ---
 
-# 13. Fluxo de Funcionamento
-
-O funcionamento completo do sistema pode ser representado da seguinte maneira:
+# 19. Fluxo de Funcionamento Final
 
 ```text
-┌────────────────────────┐
-│   Celular / Notebook   │
-└────────────┬───────────┘
-             │
-             │ Wi-Fi
-             ▼
-┌────────────────────────┐
-│    Rede Wi-Fi CarroZ   │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│      Raspberry Pi      │
-│      10.0.0.1:8080     │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│     Servidor Python    │
-│        web.py          │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│   Controle eletrônico  │
-└────────────┬───────────┘
-             │
-       ┌─────┴─────┐
-       ▼           ▼
-    Motores      Direção
-       │           │
-       └─────┬─────┘
-             ▼
-┌────────────────────────┐
-│ Movimento do carrinho  │
-└────────────────────────┘
+┌──────────────────────────┐
+│     Celular / Notebook   │
+└─────────────┬────────────┘
+              │
+              │ Wi-Fi
+              ▼
+┌──────────────────────────┐
+│     Rede Wi-Fi CarroZ    │
+└─────────────┬────────────┘
+              │
+              ▼
+┌──────────────────────────┐
+│       Raspberry Pi       │
+│      10.0.0.1:8080       │
+└─────────────┬────────────┘
+              │
+              ▼
+┌──────────────────────────┐
+│      Servidor Python     │
+│          web.py          │
+└─────────────┬────────────┘
+              │
+       ┌──────┴───────┐
+       │              │
+       ▼              ▼
+┌─────────────┐ ┌─────────────┐
+│   Controle  │ │   HC-SR04   │
+│   manual    │ │   distância │
+└──────┬──────┘ └──────┬──────┘
+       │               │
+       │               ▼
+       │        ┌──────────────┐
+       │        │  Modelo ML   │
+       │        └──────┬───────┘
+       │               │
+       │               ▼
+       │       seguir/reduzir/parar
+       │               │
+       └───────┬───────┘
+               ▼
+      ┌──────────────────┐
+      │  Controle motor  │
+      └────────┬─────────┘
+               ▼
+      ┌──────────────────┐
+      │ Carrinho-Robô    │
+      └──────────────────┘
 ```
-
-Esse fluxo representa a integração entre **comunicação sem fio, software e hardware** utilizada no projeto.
 
 ---
 
-# 14. Testes Realizados
+# 20. Testes Realizados
 
 Durante o desenvolvimento foram criados scripts separados para testar individualmente os componentes antes da integração com o sistema final.
 
-## 14.1 Inicialização do PCA9685
+## 20.1 Inicialização do PCA9685
 
 Arquivo:
 
@@ -375,9 +589,7 @@ z_init.py
 
 Utilizado para verificar a inicialização e comunicação com o PCA9685.
 
----
-
-## 14.2 Teste dos motores e velocidade
+## 20.2 Teste dos motores e velocidade
 
 Arquivo:
 
@@ -387,9 +599,7 @@ z_accel.py
 
 Utilizado para testar o acionamento dos motores com diferentes valores de velocidade.
 
----
-
-## 14.3 Teste de frente e trás
+## 20.3 Teste de frente e trás
 
 Arquivo:
 
@@ -399,9 +609,7 @@ z_frent_tras.py
 
 Utilizado para validar a movimentação do carrinho nos dois sentidos.
 
----
-
-## 14.4 Teste do sistema de direção
+## 20.4 Teste do sistema de direção
 
 Arquivo:
 
@@ -411,15 +619,13 @@ z_direcao.py
 
 Utilizado para testar sequencialmente:
 
-* Posição reta;
-* Direita;
-* Posição reta;
-* Esquerda;
-* Retorno para posição reta.
+- Posição reta;
+- Direita;
+- Posição reta;
+- Esquerda;
+- Retorno para posição reta.
 
----
-
-## 14.5 Testes individuais de direção
+## 20.5 Testes individuais de direção
 
 Também foram utilizados:
 
@@ -431,13 +637,41 @@ z_reto.py
 
 Esses arquivos permitiram testar cada posição da direção individualmente.
 
-A utilização de scripts separados facilitou a identificação de problemas e a validação dos componentes antes da integração com o sistema web.
+## 20.6 Teste do sensor
+
+O HC-SR04 foi testado individualmente para validar a leitura de distância antes da integração com o modelo de Machine Learning.
+
+## 20.7 Teste do modelo
+
+O modelo foi testado utilizando diferentes valores de distância para verificar a classificação entre:
+
+```text
+seguir
+reduzir
+parar
+```
+
+## 20.8 Teste integrado
+
+Após a integração, o carrinho foi testado com obstáculos posicionados à frente.
+
+O comportamento esperado foi:
+
+```text
+Distância segura → controle normal
+
+Obstáculo próximo → parada automática
+
+Obstáculo próximo + ré → ré permanece disponível
+```
 
 ---
 
-# 15. Processo de Desenvolvimento
+# 21. Processo de Desenvolvimento
 
-O projeto foi desenvolvido de forma incremental, testando cada parte antes da integração final.
+O projeto foi desenvolvido de forma incremental.
+
+## CP1
 
 ### Etapa 1 — Montagem
 
@@ -445,41 +679,79 @@ Montagem da estrutura física do carrinho e instalação dos componentes eletrô
 
 ### Etapa 2 — Inicialização do controlador
 
-Validação da comunicação com o PCA9685 através de um script específico de teste.
+Validação da comunicação com o PCA9685.
 
 ### Etapa 3 — Testes dos motores
 
-Teste dos motores responsáveis pela movimentação do carrinho.
-
-Foram verificados diferentes valores de velocidade e os dois sentidos de movimentação.
+Teste dos motores responsáveis pela movimentação.
 
 ### Etapa 4 — Testes de direção
 
-A direção foi testada separadamente através de scripts para:
-
-* Direita;
-* Esquerda;
-* Reto.
+Validação dos movimentos de direita, esquerda e posição reta.
 
 ### Etapa 5 — Integração
 
-Após os testes individuais, as funcionalidades foram reunidas na aplicação principal `web.py`.
+Integração das funcionalidades na aplicação principal `web.py`.
 
 ### Etapa 6 — Interface web
 
-Foi criada uma página web com botões para enviar os comandos ao carrinho.
+Criação da página de controle remoto.
 
 ### Etapa 7 — Comunicação sem fio
 
-A Raspberry Pi foi configurada para criar sua própria rede Wi-Fi, permitindo o acesso ao servidor através de outro dispositivo.
+Configuração da Raspberry Pi para criação da rede Wi-Fi.
 
 ### Etapa 8 — Sistema final
 
-Os componentes de hardware, software e comunicação foram integrados para permitir o controle remoto do carrinho.
+Integração dos componentes de hardware, software e comunicação.
 
 ---
 
-# 16. Como Utilizar
+# 22. Evolução CP2 — Machine Learning
+
+A segunda etapa do projeto adicionou inteligência ao sistema existente.
+
+### Etapa 1 — Integração do sensor
+
+Instalação e teste do HC-SR04.
+
+### Etapa 2 — Dataset
+
+Organização das medições de distância em classes:
+
+```text
+seguir
+reduzir
+parar
+```
+
+### Etapa 3 — Treinamento
+
+Treinamento do modelo de Machine Learning utilizando os dados preparados.
+
+### Etapa 4 — Exportação
+
+O modelo treinado foi salvo como:
+
+```text
+modelo_carro.pkl
+```
+
+### Etapa 5 — Inferência
+
+Integração do modelo ao Raspberry Pi.
+
+### Etapa 6 — Integração com o carrinho
+
+O resultado da classificação passou a interferir no comportamento do carrinho.
+
+### Etapa 7 — Segurança
+
+Implementação da parada automática diante de obstáculos, mantendo o controle manual e a possibilidade de ré.
+
+---
+
+# 23. Como Utilizar
 
 ## 1. Ligar o carrinho
 
@@ -511,29 +783,90 @@ Na interface web, pressione:
 INIT
 ```
 
-O sistema inicializará os componentes responsáveis pelo controle do carrinho.
+O sistema inicializará os componentes responsáveis pelo controle do carrinho e pelo monitoramento do sensor.
 
 ## 5. Controlar
 
 Utilize os botões da interface para controlar:
 
-* Frente;
-* Trás;
-* Esquerda;
-* Direita;
-* Reto;
-* Stop.
+- Frente;
+- Trás;
+- Esquerda;
+- Direita;
+- Reto;
+- Stop.
+
+Durante o movimento para frente, o sistema de Machine Learning monitora a distância e pode interromper o carrinho caso seja identificada uma situação de risco.
 
 ---
 
-# 17. Resultado Final
+# 24. Estrutura do Projeto
+
+A estrutura principal do projeto está organizada da seguinte forma:
+
+```text
+CP4-CarrinhoRobo/
+│
+├── codigo/
+│   ├── web.py
+│   └── scripts de teste
+│
+├── CP2/
+│   ├── dataset/
+│   │   └── dados_treino_corrigido.csv
+│   │
+│   ├── modelo/
+│   │   └── modelo_carro.pkl
+│   │
+│   ├── codigo/
+│   │   └── web.py
+│   │
+│   └── README.md
+│
+├── docs/
+│   └── evidencias/
+│
+├── software/
+│
+├── Organizacao/
+│
+├── Precos/
+│
+├── Medidas.xlsx
+│
+└── README.md
+```
+
+---
+
+# 25. Resultado Final
 
 O projeto resultou em um **carrinho-robô controlado remotamente através de Wi-Fi**, utilizando uma Raspberry Pi como unidade principal de processamento.
 
-A solução permite que um celular ou computador se conecte diretamente à rede criada pelo carrinho e acesse uma interface web para controlar sua movimentação.
+A evolução do CP2 adicionou um sensor ultrassônico e uma aplicação de Machine Learning capaz de analisar a distância até obstáculos e interferir no comportamento do carrinho.
 
-O sistema permite realizar movimentos para frente e para trás, controlar a direção para esquerda e direita, retornar a direção para a posição reta e interromper a movimentação.
+O sistema final integra:
 
-Além da aplicação final, foram mantidos os scripts utilizados durante os testes individuais dos componentes, registrando parte do processo de desenvolvimento até chegar à versão integrada.
+**Mecânica + Eletrônica + Raspberry Pi + HC-SR04 + Python + Machine Learning + Interface Web + Controle dos Motores**
 
-Dessa forma, o projeto demonstra a integração entre **mecânica, eletrônica, programação e comunicação sem fio** em um sistema funcional.
+O fluxo principal do sistema é:
+
+```text
+SENSOR
+   ↓
+COLETA DE DADOS
+   ↓
+DATASET
+   ↓
+TREINAMENTO
+   ↓
+MODELO ML
+   ↓
+INFERÊNCIA
+   ↓
+DECISÃO
+   ↓
+AÇÃO NO CARRINHO
+```
+
+Dessa forma, o projeto demonstra a evolução do carrinho desenvolvido no CP1 para uma aplicação integrada de **sensoriamento, Machine Learning e automação**, mantendo o controle manual do usuário e adicionando uma camada inteligente de segurança contra obstáculos.
